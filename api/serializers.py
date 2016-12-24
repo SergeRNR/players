@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from compare.models import Player
+from api.models import Player
 
 class PlayerSerializer(serializers.ModelSerializer):
     class Meta:

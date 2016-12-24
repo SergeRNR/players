@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from compare.models import Player
-from compare.serializers import PlayerSerializer
+from api.models import Player
+from api.serializers import PlayerSerializer
 
 
 class PlayerViewSet(viewsets.ModelViewSet):
