@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'corsheaders',
     'api',
     'main',
 ]
@@ -51,14 +52,23 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ),
     'DEFAULT_PERMISSION_CLASSES': [
         # 'rest_framework.permissions.IsAdminUser',
     ],
    'DEFAULT_PERMISSION_CLASSES': []
 }
+
+CORS_ORIGIN_WHITELIST = (
+    '0.0.0.0:8080'
+)
 
 ROOT_URLCONF = 'players.urls'
 

@@ -1,7 +1,10 @@
 import React from 'react';
 import NavLink from './NavLink';
 
-export default React.createClass({
+// TODO: replace inline include of SASS
+require('../styles/app.scss');
+
+class App extends React.Component {
     render() {
         return (
             <div>
@@ -13,4 +16,6 @@ export default React.createClass({
             </div>
         );
     }
-});
+}
+
+export default App;
