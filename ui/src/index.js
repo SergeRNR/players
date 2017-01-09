@@ -7,8 +7,8 @@ import thunk from 'redux-thunk';
 
 import rootReducer from './reducers';
 import App from './components/App';
-import List from './components/List';
-import Compare from './components/Compare';
+import ListContainer from './components/ListContainer';
+import CompareContainer from './components/CompareContainer';
 
 const store = createStore(
     rootReducer,
@@ -20,8 +20,8 @@ render((
         <Router history={hashHistory}>
             <Route path="/" component={App}>
                 <IndexRedirect to="/list" />
-                <Route path="/list" component={List} />
-                <Route path="/compare" component={Compare} />
+                <Route path="/list" component={ListContainer} />
+                <Route path="/compare" component={CompareContainer} />
             </Route>
         </Router>
     </Provider>

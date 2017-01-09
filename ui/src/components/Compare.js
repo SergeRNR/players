@@ -1,6 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { loadPlayers } from '../actionCreators';
 
 class Compare extends React.Component {
     constructor(props) {
@@ -16,10 +14,6 @@ class Compare extends React.Component {
                 { key: 'exp_total', label: 'Exp total' }
             ]
         };
-    }
-
-    componentDidMount() {
-        this.props.dispatch(loadPlayers())
     }
 
     compareValues(valA, valB) {
@@ -59,29 +53,27 @@ class Compare extends React.Component {
         });
 
         return (
-            <table className='sm-table sm-table-compare'>
-                <thead>
-                    <tr>
-                        {this.getPlayerHeader(this.props.playerA)}
-                        <th></th>
-                        {this.getPlayerHeader(this.props.playerB)}
-                    </tr>
-                </thead>
-                <tbody>
-                    {rows}
-                </tbody>
-            </table>
+            <div className='sm-content'>
+                <div className='sm-compare-search'>
+                    <input type='text' ref='playerA' placeholder='Player A'/>
+                    <input type='text' ref='playerB' placeholder='Player B'/>
+                    <button onClick={this.props.onSearch.bind(this)}>Compare</button>
+                </div>
+                <table className='sm-table sm-table-compare'>
+                    <thead>
+                        <tr>
+                            {this.getPlayerHeader(this.props.playerA)}
+                            <th></th>
+                            {this.getPlayerHeader(this.props.playerB)}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {rows}
+                    </tbody>
+                </table>
+            </div>
         );
     }
 }
 
-export default connect((state) => {
-    // TODO: set filtered players
-    if (state.players.length) {
-        return {
-            playerA: state.players[0],
-            playerB: state.players[2]
-        };
-    }
-    return { playerA: null, playerB: null };
-})(Compare);
+export default Compare;

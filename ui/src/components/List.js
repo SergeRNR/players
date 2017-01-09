@@ -1,10 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { loadPlayers } from '../actionCreators';
 
 class List extends React.Component {
     componentDidMount() {
-        this.props.dispatch(loadPlayers())
+        this.props.onMount();
     }
 
     render() {
@@ -12,10 +10,8 @@ class List extends React.Component {
             <li key={item.id}>name: {item.name}</li>
         );
 
-        return <ul>{items}</ul>;
+        return <div className='sm-content'><ul>{items}</ul></div>;
     }
 }
 
-export default connect((state) => ({
-    list: state.players
-}))(List);
+export default List;
