@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import Compare from './Compare';
 import { searchPlayers } from '../actionCreators';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     let compare = state.compare;
     if (compare) {
         return {

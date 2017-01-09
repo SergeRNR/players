@@ -2,11 +2,11 @@ import { connect } from 'react-redux';
 import List from './List';
 import { loadPlayers } from '../actionCreators';
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
     list: state.players
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
     onMount: () => dispatch(loadPlayers())
 });
 

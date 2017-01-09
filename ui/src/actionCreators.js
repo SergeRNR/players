@@ -25,15 +25,12 @@ export function loadPlayers() {
     }
 }
 
-let getSearchPromise = (name) => {
+let getSearchPromise = name => {
     if (name) {
-        return fetch(`${BASE_API_URL}players/?name=${name}`).then(
-            response => response.json()
-        );
+        return fetch(`${BASE_API_URL}players/?name=${name}`).then(response => response.json());
     } else {
         return Promise.resolve([null]);
     }
-
 }
 
 export function searchPlayers(nameA, nameB) {
