@@ -9,5 +9,5 @@ class PlayerViewSet(viewsets.ModelViewSet):
         queryset = Player.objects.all()
         name = self.request.query_params.get('name', None)
         if name is not None:
-            queryset = queryset.filter(name=name)
+            queryset = queryset.filter(name=name, is_hidden=False)
         return queryset
