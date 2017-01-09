@@ -6,11 +6,34 @@ class List extends React.Component {
     }
 
     render() {
-        let items = this.props.list.map(item =>
-            <li key={item.id}>name: {item.name}</li>
+        let rows = this.props.list.map(player =>
+            <tr key={player.id}>
+                <td>{player.name}</td>
+                <td>{player.battles_total}</td>
+                <td>{player.days_total}</td>
+                <td>{player.rating}</td>
+                <td>{player.vehicles_x}</td>
+            </tr>
         );
 
-        return <div className='sm-content'><ul>{items}</ul></div>;
+        return (
+            <div className='sm-content'>
+                <table className='sm-table'>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Battles total</th>
+                            <th>Days total</th>
+                            <th>Rating</th>
+                            <th>Vehicles X</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {rows}
+                    </tbody>
+                </table>
+            </div>
+        );
     }
 }
 

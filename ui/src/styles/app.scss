@@ -1,6 +1,14 @@
+// colors
+$color-font: #222;
 $color-max: rgba(0,255,0,0.77);
 $color-equal: orange;
 $color-min: rgba(255,0,0,0.77);
+$color-nav-active: #ddd;
+$color-nav-hover: #eee;
+
+// sizes
+$nav-width: 150px;
+$nav-item-height: 2em;
 
 html, body {
   width: 100%;
@@ -9,10 +17,53 @@ html, body {
   padding: 0;
 }
 
+.sm-container {
+  color: $color-font;
+  display: flex;
+}
+
+nav {
+  width: $nav-width;
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      height: $nav-item-height;
+      line-height: $nav-item-height;
+
+      a {
+        color: $color-font;
+        display: block;
+        text-decoration: none;
+
+        &:hover {
+          background-color: $color-nav-hover;
+        }
+        &.active {
+          background-color: $color-nav-active;
+        }
+      }
+    }
+  }
+}
+
+section {
+  width: calc(100% - 150px);
+}
+
 .sm-compare-search {
-  margin-bottom: 20px;
+  margin-bottom: 2em;
+
   input, button {
-    width: calc(32%);
+    width: calc((100% - 4px) / 3);
+    height: 2em;
+  }
+
+  input {
+    border: 1px solid #ddd;
   }
 }
 
@@ -24,7 +75,7 @@ html, body {
     border: 1px solid #ddd;
     text-align: center;
     padding: 8px;
-    width: calc(100% / 3);
+    width: calc(100% / 5);
   }
 
   tr:nth-child(even) {
@@ -41,5 +92,18 @@ html, body {
     &.sm-compare-min {
       background-color: $color-min;
     }
+  }
+
+  &-compare {
+    td, th {
+      width: calc(100% / 3);
+    }
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .sm-container {
+    max-width: 800px;
+    margin: 0 auto;
   }
 }

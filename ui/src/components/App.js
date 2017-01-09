@@ -7,12 +7,16 @@ require('../styles/app.scss');
 class App extends React.Component {
     render() {
         return (
-            <div>
-                <ul role="nav">
-                    <li><NavLink to="/list">list</NavLink></li>
-                    <li><NavLink to="/compare">compare</NavLink></li>
-                </ul>
-                {this.props.children}
+            <div className='sm-container'>
+                <nav>
+                    <ul role="nav">
+                        <li><NavLink to="/list">list</NavLink></li>
+                        <li><NavLink to="/compare">compare</NavLink></li>
+                    </ul>
+                </nav>
+                <section>
+                    {this.props.children}
+                </section>
             </div>
         );
     }
